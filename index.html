@@ -1,29 +1,45 @@
-<!doctype html>
-<html lang="en" ng-app = "NarrowItDownApp">
-  <head>
-    <title>Narrow Down Your Menu Choice</title>
-    <script src="jquery-3.1.0.min.js"></script>
-    <script src="angular.min.js" charset="utf-8"></script>
-    <script src="app.js" charset="utf-8"></script>
+<!DOCTYPE html>
+<html lang="en" ng-app="MenuApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/styles.css">
+    <title>Restaurant Menu App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css">
+    <style>
+    .jumbotron .btn { margin: 5px; }
+    </style>
+</head>
 
-  </head>
 <body>
-   <div class="container" ng-controller="NarrowItDownController as menu">
-    <h1>Narrow Down Your Chinese Menu Choice</h1>
-
-    <div class="form-group">
-      <input type="text" placeholder="search term" class="form-control" ng-model="menu.searchTerm">
+    <div class="container">
+        <h1>
+            <h3>My Restaurant:Assignment 4</h3>
+            <ul>
+                <li ui-sref-active="active" ui-sref="home" role="presentation"><a href="#">Homepage</a></li>
+                <li ui-sref-active="active" ui-sref="categories" role="presentation"><a href="#">Item Groups</a></li>
+            </ul>
+        </h1>
+        <ui-view></ui-view>
     </div>
-    <div class="form-group narrow-button">
-      <button class="btn btn-primary" ng-Click="menu.getMenuItems()">Narrow It Down For Me!</button>
-    </div>
-
-    <found-items items-found="menu.foundItems" on-remove="menu.removeItem(index)"></found-items>
-  </div>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+    <script src="modules/menuapp.module.js"></script>
+    <script src="modules/data.module.js"></script>
+    <script src="controllers/categories.controller.js"></script>
+    <script src="controllers/items.controller.js"></script>
+    <script src="services/menudata.service.js"></script>
+    <script src="components/categories.component.js"></script>
+    <script src="components/items.component.js"></script>
+    <script src="routes/routes.js"></script>
+    <script src="templates/home.template.html"></script>
+    <script src="templates/categories.component.html"></script>
+    <script src="templates/categories.template.html"></script>
+    <script src="templates/items.component.html"></script>
+    <script src="templates/items.template.html"></script>
 </body>
+
 </html>
-  
